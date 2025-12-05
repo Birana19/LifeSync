@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="100dp"
+            android:clipToPadding="false">
+
+            <TextView
+                android:id="@+id/hydration_tracker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="100dp"
+                android:text="@string/hydration_track"
+                android:textColor="#070707"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/hydration_slogan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="200dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/hydration_slogan"
+                android:textColor="#999494"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hydration_tracker" />
+
+            <RelativeLayout
+                android:id="@+id/progress_container"
+                android:layout_width="356dp"
+                android:layout_height="250dp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hydration_slogan">
+
+                <ProgressBar
+                    android:id="@+id/circularProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:progress="30"
+                    android:progressDrawable="@drawable/circular_progress"
+                    android:rotation="-90" />
+
+                <TextView
+                    android:id="@+id/tvPercentage"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:text="30%"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+
+
+            <TextView
+                android:id="@+id/tdy_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="200dp"
+                android:layout_marginEnd="200dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/hydra_progress"
+                android:textColor="#0D0C0C"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hydration_slogan" />
+
+            <ImageView
+                android:id="@+id/imageView35"
+                android:layout_width="360dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tdy_progress"
+                app:srcCompat="@drawable/background_white" />
+
+            <!-- Top row of cups -->
+            <FrameLayout
+                android:id="@+id/cup1_container"
+                android:layout_width="75dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/imageView35"
+                app:layout_constraintTop_toTopOf="@+id/imageView35">
+                <ImageView
+                    android:id="@+id/cup1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/background_grey" />
+                <ImageView
+                    android:id="@+id/cup1_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/water_color" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/cup2_container"
+                android:layout_width="75dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@+id/cup1_container"
+                app:layout_constraintTop_toTopOf="@+id/cup1_container">
+                <ImageView
+                    android:id="@+id/cup2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/background_grey" />
+                <ImageView
+                    android:id="@+id/cup2_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/water_color" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/cup3_container"
+                android:layout_width="75dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@+id/cup2_container"
+                app:layout_constraintTop_toTopOf="@+id/cup1_container">
+                <ImageView
+                    android:id="@+id/cup3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/background_grey" />
+                <ImageView
+                    android:id="@+id/cup3_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/water_color" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/cup4_container"
+                android:layout_width="75dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintStart_toEndOf="@+id/cup3_container"
+                app:layout_constraintTop_toTopOf="@+id/cup1_container"
+                app:layout_constraintEnd_toEndOf="@+id/imageView35">
+                <ImageView
+                    android:id="@+id/cup4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/background_grey" />
+                <ImageView
+                    android:id="@+id/cup4_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/water_color" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/cup5_container"
+                android:layout_width="75dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/cup1_container"
+                app:layout_constraintStart_toStartOf="@+id/cup1_container">
+                <ImageView
+                    android:id="@+id/cup5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/background_grey" />
+                <ImageView
+                    android:id="@+id/cup5_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/water_color" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/cup6_container"
+                android:layout_width="75dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@+id/cup5_container"
+                app:layout_constraintTop_toTopOf="@+id/cup5_container">
+                <ImageView
+                    android:id="@+id/cup6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/background_grey" />
+                <ImageView
+                    android:id="@+id/cup6_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/water_color" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/cup7_container"
+                android:layout_width="75dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@+id/cup6_container"
+                app:layout_constraintTop_toTopOf="@+id/cup5_container">
+                <ImageView
+                    android:id="@+id/cup7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/background_grey" />
+                <ImageView
+                    android:id="@+id/cup7_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/water_color" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/cup8_container"
+                android:layout_width="75dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintStart_toEndOf="@+id/cup7_container"
+                app:layout_constraintTop_toTopOf="@+id/cup5_container"
+                app:layout_constraintEnd_toEndOf="@+id/imageView35">
+                <ImageView
+                    android:id="@+id/cup8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/background_grey" />
+                <ImageView
+                    android:id="@+id/cup8_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/water_color" />
+            </FrameLayout>
+
+
+            <TextView
+                android:id="@+id/quick_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="230dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/quick_add"
+                android:textColor="#0B0B0B"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView35" />
+
+            <ImageView
+                android:id="@+id/halfcup_btn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/quick_add"
+                app:srcCompat="@drawable/background_white" />
+
+            <ImageView
+                android:id="@+id/fullcup_btn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/largecup_btn"
+                app:layout_constraintStart_toEndOf="@+id/halfcup_btn"
+                app:layout_constraintTop_toBottomOf="@+id/quick_add"
+                app:srcCompat="@drawable/background_white" />
+
+            <ImageView
+                android:id="@+id/largecup_btn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/quick_add"
+                app:srcCompat="@drawable/background_white" />
+
+            <ImageView
+                android:id="@+id/imageView55"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="32dp"
+                app:layout_constraintBottom_toBottomOf="@+id/halfcup_btn"
+                app:layout_constraintEnd_toEndOf="@+id/halfcup_btn"
+                app:layout_constraintStart_toStartOf="@+id/halfcup_btn"
+                app:layout_constraintTop_toTopOf="@+id/halfcup_btn"
+                app:srcCompat="@drawable/water_bw" />
+
+            <ImageView
+                android:id="@+id/imageView56"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="32dp"
+                app:layout_constraintBottom_toBottomOf="@+id/fullcup_btn"
+                app:layout_constraintEnd_toEndOf="@+id/fullcup_btn"
+                app:layout_constraintStart_toStartOf="@+id/fullcup_btn"
+                app:layout_constraintTop_toTopOf="@+id/fullcup_btn"
+                app:srcCompat="@drawable/water_bw" />
+
+            <ImageView
+                android:id="@+id/imageView57"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="32dp"
+                app:layout_constraintBottom_toBottomOf="@+id/largecup_btn"
+                app:layout_constraintEnd_toEndOf="@+id/largecup_btn"
+                app:layout_constraintStart_toStartOf="@+id/largecup_btn"
+                app:layout_constraintTop_toTopOf="@+id/largecup_btn"
+                app:srcCompat="@drawable/water_bw" />
+
+            <TextView
+                android:id="@+id/half_glass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/half_glass"
+                android:textColor="#070707"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/halfcup_btn"
+                app:layout_constraintStart_toStartOf="@+id/halfcup_btn"
+                app:layout_constraintTop_toBottomOf="@+id/imageView55" />
+
+            <TextView
+                android:id="@+id/full_glass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/full_glass"
+                android:textColor="#050505"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/fullcup_btn"
+                app:layout_constraintStart_toStartOf="@+id/fullcup_btn"
+                app:layout_constraintTop_toBottomOf="@+id/imageView56" />
+
+            <TextView
+                android:id="@+id/large_cup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/large_cup"
+                android:textColor="#0B0B0B"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/largecup_btn"
+                app:layout_constraintStart_toStartOf="@+id/largecup_btn"
+                app:layout_constraintTop_toBottomOf="@+id/imageView57" />
+
+            <TextView
+                android:id="@+id/halfcup_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/halfcup_size"
+                android:textColor="#0D0D0D"
+                app:layout_constraintBottom_toBottomOf="@+id/halfcup_btn"
+                app:layout_constraintEnd_toEndOf="@+id/halfcup_btn"
+                app:layout_constraintStart_toStartOf="@+id/halfcup_btn"
+                app:layout_constraintTop_toBottomOf="@+id/half_glass" />
+
+            <TextView
+                android:id="@+id/fullcup_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/fullcup_size"
+                android:textColor="#0D0D0D"
+                app:layout_constraintBottom_toBottomOf="@+id/fullcup_btn"
+                app:layout_constraintEnd_toEndOf="@+id/fullcup_btn"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="@+id/fullcup_btn"
+                app:layout_constraintTop_toBottomOf="@+id/full_glass" />
+
+            <TextView
+                android:id="@+id/largecup_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/largecup_size"
+                android:textColor="#090909"
+                app:layout_constraintBottom_toBottomOf="@+id/largecup_btn"
+                app:layout_constraintEnd_toEndOf="@+id/largecup_btn"
+                app:layout_constraintStart_toStartOf="@+id/largecup_btn"
+                app:layout_constraintTop_toBottomOf="@+id/large_cup" />
+
+            <Button
+                android:id="@+id/minus_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/blueish_green"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#FDFAFA"
+                android:textSize="34sp"
+                app:layout_constraintEnd_toStartOf="@+id/plus_btn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fullcup_size" />
+
+            <Button
+                android:id="@+id/plus_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="150dp"
+                android:backgroundTint="@color/blueish_green"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fullcup_btn" />
+
+            <ImageView
+                android:id="@+id/imageView59"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/minus_btn"
+                app:layout_constraintEnd_toEndOf="@+id/minus_btn"
+                app:layout_constraintStart_toStartOf="@+id/minus_btn"
+                app:layout_constraintTop_toTopOf="@+id/minus_btn"
+                app:srcCompat="@drawable/minus_icon" />
+
+            <ImageView
+                android:id="@+id/imageView60"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/plus_btn"
+                app:layout_constraintEnd_toEndOf="@+id/plus_btn"
+                app:layout_constraintStart_toStartOf="@+id/plus_btn"
+                app:layout_constraintTop_toTopOf="@+id/plus_btn"
+                app:srcCompat="@drawable/plus_icon" />
+
+            <TextView
+                android:id="@+id/reminder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="750dp"
+                android:layout_marginEnd="230dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/reminder"
+                android:textColor="#0D0D0D"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView61"
+                android:layout_width="356dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="790dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.413"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_white" />
+
+            <ImageView
+                android:id="@+id/imageView62"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView61"
+                app:layout_constraintStart_toStartOf="@+id/imageView61"
+                app:layout_constraintTop_toTopOf="@+id/imageView61"
+                app:srcCompat="@drawable/notifications_icon" />
+
+            <TextView
+                android:id="@+id/drink_reminder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="35dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/drink_reminder"
+                android:textColor="#0D0C0C"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView61"
+                app:layout_constraintEnd_toEndOf="@+id/imageView61"
+                app:layout_constraintStart_toStartOf="@+id/imageView61"
+                app:layout_constraintTop_toTopOf="@+id/imageView61" />
+
+            <Switch
+                android:id="@+id/reminder_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="300dp"
+                android:layout_marginBottom="30dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView61"
+                app:layout_constraintEnd_toEndOf="@+id/imageView61"
+                app:layout_constraintStart_toStartOf="@+id/imageView61"
+                app:layout_constraintTop_toTopOf="@+id/imageView61" />
+
+            <ImageView
+                android:id="@+id/imageView63"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView61"
+                app:layout_constraintStart_toStartOf="@+id/imageView61"
+                app:layout_constraintTop_toTopOf="@+id/imageView61"
+                app:srcCompat="@drawable/background_white" />
+
+            <ImageView
+                android:id="@+id/imageView64"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView61"
+                app:layout_constraintStart_toEndOf="@+id/imageView63"
+                app:layout_constraintTop_toTopOf="@+id/imageView61"
+                app:srcCompat="@drawable/background_white" />
+
+            <ImageView
+                android:id="@+id/imageView65"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView61"
+                app:layout_constraintStart_toEndOf="@+id/imageView64"
+                app:layout_constraintTop_toTopOf="@+id/imageView61"
+                app:srcCompat="@drawable/background_white" />
+
+            <ImageView
+                android:id="@+id/imageView66"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="50dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView61"
+                app:layout_constraintEnd_toEndOf="@+id/reminder_switch"
+                app:layout_constraintStart_toEndOf="@+id/imageView65"
+                app:layout_constraintTop_toTopOf="@+id/imageView61"
+                app:srcCompat="@drawable/background_white" />
+
+            <TextView
+                android:id="@+id/time_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/time_1"
+                android:textColor="#0B0B0B"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView63"
+                app:layout_constraintEnd_toEndOf="@+id/imageView63"
+                app:layout_constraintStart_toStartOf="@+id/imageView63"
+                app:layout_constraintTop_toTopOf="@+id/imageView63" />
+
+            <TextView
+                android:id="@+id/time_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/time_2"
+                android:textColor="#0D0D0D"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView64"
+                app:layout_constraintEnd_toEndOf="@+id/imageView64"
+                app:layout_constraintStart_toStartOf="@+id/imageView64"
+                app:layout_constraintTop_toTopOf="@+id/imageView64" />
+
+            <TextView
+                android:id="@+id/time_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/time_3"
+                android:textColor="#0D0D0D"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView65"
+                app:layout_constraintEnd_toEndOf="@+id/imageView65"
+                app:layout_constraintStart_toStartOf="@+id/imageView65"
+                app:layout_constraintTop_toTopOf="@+id/imageView65" />
+
+            <TextView
+                android:id="@+id/time_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/time_4"
+                android:textColor="#0D0D0D"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView66"
+                app:layout_constraintEnd_toEndOf="@+id/imageView66"
+                app:layout_constraintStart_toStartOf="@+id/imageView66"
+                app:layout_constraintTop_toTopOf="@+id/imageView66" />
+
+            <TextView
+                android:id="@+id/this_week"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="250dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/this_week"
+                android:textColor="#0F0F0F"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView61" />
+
+            <ImageView
+                android:id="@+id/imageView67"
+                android:layout_width="356dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/this_week"
+                app:srcCompat="@drawable/background_white" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barChart"
+                android:layout_width="356dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView67"
+                app:layout_constraintEnd_toEndOf="@+id/imageView67"
+                app:layout_constraintStart_toStartOf="@+id/imageView67"
+                app:layout_constraintTop_toTopOf="@+id/imageView67" />
+
+
+            <TextView
+                android:id="@+id/hydra_tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="210dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/hydra_tips"
+                android:textColor="#101010"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView67" />
+
+            <ImageView
+                android:id="@+id/imageView68"
+                android:layout_width="356dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hydra_tips"
+                app:srcCompat="@drawable/background_white" />
+
+            <ImageView
+                android:id="@+id/imageView69"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView68"
+                app:layout_constraintStart_toStartOf="@+id/imageView68"
+                app:layout_constraintTop_toTopOf="@+id/imageView68"
+                app:srcCompat="@drawable/bulb_icon" />
+
+            <ImageView
+                android:id="@+id/imageView70"
+                android:layout_width="356dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="80dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView68"
+                app:srcCompat="@drawable/background_white" />
+
+            <ImageView
+                android:id="@+id/imageView71"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView70"
+                app:layout_constraintStart_toStartOf="@+id/imageView70"
+                app:layout_constraintTop_toTopOf="@+id/imageView70"
+                app:srcCompat="@drawable/reminder_icon" />
+
+            <TextView
+                android:id="@+id/tip_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/tip_1"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView68"
+                app:layout_constraintEnd_toEndOf="@+id/imageView68"
+                app:layout_constraintStart_toStartOf="@+id/imageView68"
+                app:layout_constraintTop_toTopOf="@+id/imageView68" />
+
+            <TextView
+                android:id="@+id/tip_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/tip_2"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView70"
+                app:layout_constraintEnd_toEndOf="@+id/imageView70"
+                app:layout_constraintStart_toStartOf="@+id/imageView70"
+                app:layout_constraintTop_toTopOf="@+id/imageView70" />
+
+            <View
+                android:id="@+id/quick_add_layout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/quick_add"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="gone" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@color/nav_item_color"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_nav_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/bottom_nav_bg"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
